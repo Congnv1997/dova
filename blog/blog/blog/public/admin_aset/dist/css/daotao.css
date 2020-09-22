@@ -1,0 +1,102 @@
+
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+    display: block;
+}
+
+.list-group .list-group-item:hover h5 a {
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #FF800A;
+    transition: color 0.3s ease;
+     text-decoration: none !important;
+}
+
+a:hover, a:focus {
+    color: #181a1c;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: #2a6496;
+    text-decoration: none !important;
+}
+
+a:active, a:hover {
+    outline: 0;
+}
+
+ 
+
+body a:hover {
+    text-decoration: none !important;
+}
+.list-group-item
+{
+
+}
+.list-group-item a
+{
+     text-decoration: none !important;
+}
+
+.text
+{
+    float:left;
+    width:80%;
+}
+.text h5
+{
+   padding:0px;
+   margin:0px 0 3px 0;
+   height:29px;
+   overflow:hidden;
+
+}
+.text span {
+    font-weight:bold;
+
+}
+
+.images
+{
+    float:left;
+
+
+}
+.images img
+{
+    float:left;
+    width:60px;
+    height:60px;
+    margin-right:5px;
+
+}
+
+.text_feed
+{
+    float: left;
+    padding: 7px 0px;
+}
+.text_feed .images
+{
+
+}
+
+.text_feed .images img
+{
+    width:100px;
+    height:100px;
+}
+.text_feed p {
+    padding:0px;
+    margin:0px;
+
+}
+.block-buttom-right
+{
+    right:0px !important;
+    position:inherit;
+}
