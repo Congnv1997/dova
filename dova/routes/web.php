@@ -30,9 +30,14 @@ Route::get('/addUser', 'Backend\UserController@add')
     ->name('User.Add');
 Route::get('/deleteUser/{User_id}', 'Backend\UserController@delete');
 
+
+//Project Route
+Route::group(["prefix" => "project"], function() {
+    Route::get('listProject', 'ProjectController@getList')->name('list_project');
+    Route::post('createProject', 'ProjectController@create')->name('create_project');
+});
+
 // Task
 Route::get('/task','Backend\TaskController@list');
-
-
 
 
