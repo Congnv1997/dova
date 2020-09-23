@@ -1,0 +1,83 @@
+.remove-padding-left {
+  padding-left: 0 initial;
+}
+.remove-padding-right {
+  padding-right: 0 initial;
+}
+.remove-padding {
+  padding: 0 initial;
+}
+.header {
+  background-color: #365998;
+  background-image: linear-gradient(#365998, #365998 50%);
+  border-bottom: 1px solid #133783;
+  min-height: 90px;
+}
+.header .brand .logo {
+  background-image: url("../images/logo3.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100px;
+  width: 200px;
+}
+.header .form-login label {
+  color: #fff;
+  font-weight: normal;
+  padding-left: 1px;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+.header .form-login input {
+  border-radius: 0;
+  padding: 3px 3px 4px 3px;
+  border-color: #1d2a56;
+  width: 142px;
+  height: 23px;
+}
+.header .form-login input:focus {
+  box-shadow: none;
+  outline: 2px solid #4576cd;
+}
+.header.form-login .inp-pass {
+  margin-right: 15px;
+}
+.header .form-login .inp-pass .form-group {
+  margin-bottom: 0;
+}
+.header .form-login .forgot-acc {
+  color: #9cb4d8;
+  font-weight: normal;
+  font-size: 12px;
+}
+.header .form-login .btn-login {
+  background-color: #4267b2;
+  border-color: #29487d;
+  border-radius: 2px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 2px 6px;
+  margin-top: 26px;
+}
+.header .form-login .login-block {
+  margin-top: 13px;
+}
+.content {
+  background: linear-gradient(white, rgba(224, 223, 223, 0.945));
+}
+
+.content .col-left {
+  padding-top: 20px;
+}
+.content .col-left h4 {
+  color: #0e385f;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 25px;
+  margin-top: 40px;
+  width: 450px;
+  word-spacing: -1px;
+}
+.content .col-right {
+  padding-top: 50px;
+}
