@@ -1,0 +1,96 @@
+/*
+    Ncolorbox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+#Ncolorbox, #NcboxOverlay, #NcboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#NcboxWrapper {max-width:none;}
+#NcboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #NcboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto; -webkit-overflow-scrolling: touch;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #NcboxLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;}
+#cboxPrevious, #NcboxNext, #NcboxClose, #NcboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block; max-width:none; -ms-interpolation-mode:bicubic;}
+.cboxIframe{width:100%; height:100%; display:block; border:0; padding:0; margin:0;}
+#Ncolorbox, #NcboxContent, #NcboxLoadedContent{box-sizing:content-box; -moz-box-sizing:content-box; -webkit-box-sizing:content-box;}
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of Ncolorbox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+#NcboxOverlay {
+    background: #333333 none repeat scroll 0% 0%;
+}
+#Ncolorbox{outline:0;}
+    #NcboxContent {
+    overflow: visible;
+    background-color: #FFFFFF;
+}
+        .cboxIframe{background:#fff;}
+        #NcboxError{padding:50px; border:1px solid #ccc;}
+ #NcboxLoadedContent{padding:1px;
+box-shadow: 2px 2px 10px #444;}
+  /*#cboxLoadedContent select {
+    background-position: 5px 5px;
+    border: 1px solid #DDD;
+    outline: 0px none;
+    line-height: 28px;
+    height: 28px;
+    padding: 0px 7px;
+    box-shadow: 1px 1px 2px #F5F5F5;
+    transition: all 0.4s ease 0s;
+    font-size: 14pt;
+}*/
+ #NcboxLoadingGraphic{background:url(/images/loading.gif) no-repeat center center;}
+ #NcboxLoadingOverlay{background:#000;}
+ #NcboxTitle {
+    position: absolute;
+    top: 0px;
+    background: transparent linear-gradient(#FEFEFD, #F9F9F9 3%, #E5E5E5) repeat scroll 0% 0%;
+    color: #000000;
+    border-bottom: 1px solid #CCC;
+    width: 100%;
+    height: 35px;
+    font-size: 16pt;
+    font-weight: normal;
+    padding-left: 10px;
+    line-height:40px;
+}
+#cboxTitle .btsend {
+    float:right;
+    margin-right:60px;
+    margin-top:8px;
+    width:70px;
+}
+        #NcboxCurrent{position:absolute; top:-22px; right:205px; text-indent:-9999px;}
+
+        /* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+        #NcboxPrevious, #NcboxNext, #NcboxSlideshow, #NcboxClose {
+    border: 0px none;
+    padding: 0px;
+    margin-right: 10px;
+    overflow: visible;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    text-indent:-9999px; 
+    top: 5px;
+    background: url(/images/icon_x.png) no-repeat 0px 0px;right:0;
+}
+        
+        /* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+        #NcboxPrevious:active, #NcboxNext:active, #NcboxSlideshow:active, #NcboxClose:active {outline:0;}
+
+        #NcboxPrevious{background-position:0px 0px; right:44px;}
+        #NcboxPrevious:hover{background-position:0px -25px;}
+        #NcboxNext{background-position:-25px 0px; right:22px;}
+        #NcboxNext:hover{background-position:-25px -25px;}
+        /*#cboxClose{background-position:-50px 0px; right:0;}*/
+        #NcboxClose:hover{  background: url(/images/icon_x_hover.png) no-repeat 0px 0px; }
+        .cboxSlideshow_on #NcboxPrevious, .cboxSlideshow_off #NcboxPrevious{right:66px;}
+        .cboxSlideshow_on #NcboxSlideshow{background-position:-75px -25px; right:44px;}
+        .cboxSlideshow_on #NcboxSlideshow:hover{background-position:-100px -25px;}
+        .cboxSlideshow_off #NcboxSlideshow{background-position:-100px 0px; right:44px;}
+        .cboxSlideshow_off #NcboxSlideshow:hover{background-position:-75px -25px;}
