@@ -5,7 +5,11 @@
             <nav class="nav-menu">
             <ul>
                         <li id="" >
+
                             <a href="{{ route('home') }}" >
+
+                            <a href="admin" >
+
                                 <i class="i i-home icon"></i>
                                 <span>Tổng quan</span>
                             </a>
@@ -17,9 +21,19 @@
                             </a>
                         </li>
                         <li id="">
+<<<<<<< HEAD
                             <a href="{{ route('home_project') }}">
+=======
+
+                            <a href="{{ route('list_project') }}">
+>>>>>>> afd514ec646a396a78b1a76ce2c6fe53f2ee2eb5
                                 <i class="fas fa-project-diagram"></i>
                                 <span>Dự án</span>
+
+                            <a href="chuong-trinh/home">
+                                <i class="i i-study icon"></i>
+                                <span>Chương trình</span>
+
                             </a>
                         </li>
                         <li id="menuleft_lophoc">
@@ -41,7 +55,11 @@
                             </a>
                         </li>
                         <li id="">
+
                             <a target="_bank" href="congviec/home">
+
+                            <a target="_bank" href="{{\Illuminate\Support\Facades\URL::to('/task')}}">
+
                                 <i class="i i-data2 icon"></i>
                                 <span>Công việc</span>
                             </a>
@@ -104,6 +122,8 @@
                                                 </a>
                                             </div>
                                         </div>
+
+
                                     </div>
 
                                     <div class="col-xs-6 item-dropdown-top-menu">

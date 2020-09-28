@@ -5,9 +5,11 @@
        <div class="vlt-left">
         <div class="vlt-header">
             <div class="banner">
+
             <a href="" >
                 <img src="../resources/images/looogoooo-01.png" alt="" style="z-index: 10" width="100%" height="auto">
              </a>
+
                 <img src="{{url('')}}/images/bg_pattern.png" alt="">
                 <div class="vlt-anh">
                     <div class="vlt-avatar load-anh" >
@@ -40,18 +42,39 @@
 
     </div>
     <!-- right    -->
+<<<<<<< HEAD
     <div class="vlt-right col-md-2" >
+=======
+
+   <div class="vlt-right col-md-2" >
+
+    <div class="vlt-right col-md-2" >
+
+>>>>>>> afd514ec646a396a78b1a76ce2c6fe53f2ee2eb5
         <section class="panel panel-primary vlt-menuleft ">
                     <div class="vlt-bodyheader">
                         <strong>THÔNG TIN CHƯƠNG TRÌNH</strong>
                     </div>
                     <div class="panel-body panel-body-full vlt-scrollin4">
                         <div id="ctl21_list_chuongtrinh" class="list-group no-radius">    <a class="list-group-item" href="#" data-toggle="modal" data-target="#modalCourse"> Ali Kids 1 (10 - 14 tuổi) </a>    <a class="list-group-item" href="#" data-toggle="modal" data-target="#modalCourse"> Ali Teen 1 (12-18tuổi)</a>    <a class="list-group-item" href="#" data-toggle="modal" data-target="#modalCourse">Ali Adult 3 ( Ca6: 2,4,6)</a>    <a class="list-group-item" href="#" data-toggle="modal" data-target="#modalCourse">Ali Kids lớn 1(10-14 tuổi) </a>    <a class="list-group-item" href="#" data-toggle="modal" data-target="#modalCourse">Ali Kindy 1</a>    <a class="list-group-item" href="#" data-toggle="modal" data-target="#modalCourse">Ali Kindy 2 </a>    <a class="list-group-item" href="#" data-toggle="modal" data-target="#modalCourse">Ali Teens Tân Dân </a>    <a class="list-group-item" href="#" data-toggle="modal" data-target="#modalCourse">Chương trình 50% GVNN  </a>    <a class="list-group-item" href="#" data-toggle="modal" data-target="#modalCourse">Học Sinh Giỏi Tiếng Anh cấp 2 </a>    <a class="list-group-item" href="#" data-toggle="modal" data-target="#modalCourse">Học Tiếng Anh: 100% GVNN </a>    <a class="list-group-item" href="#" data-toggle="modal" data-target="#modalCourse">Khóa 1 Tiếng Anh Người Lớn</a>    <a class="list-group-item" href="#" data-toggle="modal" data-target="#modalCourse">Tiếng Anh cấp 2 nhóm cô Minh</a>    <a class="list-group-item" href="#" data-toggle="modal" data-target="#modalCourse">Tiếng Anh Mầm Non</a></div>
+<<<<<<< HEAD
                     </div>
+=======
+
+                    </div> 
+>>>>>>> afd514ec646a396a78b1a76ce2c6fe53f2ee2eb5
 
 						<!-- thống kê cá nhân -->
 
                     <div class="vlt-bodyheader">
+<<<<<<< HEAD
+=======
+
+                    </div>
+
+                    <div class="vlt-bodyheader">
+
+>>>>>>> afd514ec646a396a78b1a76ce2c6fe53f2ee2eb5
                         <strong>Thống kê cá nhân</strong>
                         </div>
 
@@ -82,16 +105,37 @@
                             </a>
                         </div>
 
+<<<<<<< HEAD
+=======
+        </div> 
+
+					<!-- nhân viên đnag online -->
+
+               </section>
+>>>>>>> afd514ec646a396a78b1a76ce2c6fe53f2ee2eb5
                     </div>
 
 					<!-- nhân viên đnag online -->
 
+<<<<<<< HEAD
                 </section> -->
                 <!-- /.panel-->
+=======
+                </section>
+
+                <!-- /.panel -->
+>>>>>>> afd514ec646a396a78b1a76ce2c6fe53f2ee2eb5
 
 
 
 
+<<<<<<< HEAD
     </div>
+=======
+
+    </div> 
+    </div>
+
+>>>>>>> afd514ec646a396a78b1a76ce2c6fe53f2ee2eb5
     <!-- right -->
     </main>

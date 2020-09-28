@@ -30,6 +30,7 @@ Route::get('/addUser', 'Backend\UserController@add')
     ->name('User.Add');
 Route::get('/deleteUser/{User_id}', 'Backend\UserController@delete');
 
+
 //Project Route
 Route::group(["prefix" => "project"], function() {
     Route::get('/projectHome', 'Backend\ProjectController@index')->name('home_project');
@@ -42,3 +43,8 @@ Route::group(["prefix" => "project"], function() {
     Route::get('/completeProject', 'Backend\ProjectController@completeList')->name('complete_project');
     Route::get('/ideaProject', 'Backend\ProjectController@ideaList')->name('idea_project');
 });
+
+// Task
+Route::get('/task','Backend\TaskController@list');
+
+
