@@ -2,7 +2,7 @@
 
 @section('content')
     <section>
-        <style>
+    <style>
             
             .project-item {
                 position: relative;
@@ -123,13 +123,13 @@
                 border: 1px solid #0262A6;
                 text-transform: uppercase;
                 display: flex;
-                justify-content: space-between;
+                justify-content: space-around;
             }
-            .project-title{
-                margin-left: 15px;
-            }
+            /* .project-title{
+                margin-left: 70px;
+            } */
             .project-status {
-                margin: 10px 20px 0 0;
+                margin: 10px 10px 0 30px;
             }
             
             .btn-details {
@@ -151,9 +151,9 @@
             }
 
         </style>
-        
+        <!-- test -->
         <div class="row">
-        <div class="col-sm-12 container">
+        <div class="col-sm-12">
             <div class="menu-option-top1 panel b-a m-b-sm">
                 <div class="row m-n">
                 <div  class="item-menu col-md-2 b-r m-t-xs m-b-xs ">
@@ -193,7 +193,7 @@
                         </a>
                     </div>
              
-                    <!-- <div id="menutop_diemdanh" class="item-menu col-md-2 b-r m-t-xs m-b-xs">
+                    <div id="menutop_diemdanh" class="item-menu col-md-2 b-r m-t-xs m-b-xs">
                         <a target="_bank" href="lop-hoc/diem-danh" class="block hover">
                             <span class="i-s i-s-1-5x pull-left m-r-xs">
                                 <i class="i i-hexagon2 i-s-base text-success-lt hover-rotate"></i>
@@ -204,8 +204,8 @@
                                
                             </span>
                         </a>
-                    </div>  -->
-                    <div class="item-menu col-md-2 b-r m-t-xs m-b-xs">
+                    </div> 
+                        <div class="item-menu col-md-2 b-r m-t-xs m-b-xs">
                         <a href="" class="block hover" data-toggle="modal" data-target="#modal-addproject">
                             <span class="i-s i-s-1-5x pull-left m-r-xs">
                                 <i class="i i-hexagon2 i-s-base text-success-lt hover-rotate"></i>
@@ -224,6 +224,7 @@
                             </span>
                             <span class="clear">
                                 <span class="h5 block m-t-xs text-success-lt">Thời khóa biểu</span>
+
                              </span>
                         </a>
                     </div> 
@@ -232,36 +233,26 @@
             </div>
         </div>
     </div>
-       
+        <!-- end test -->
         <div class="project-list">
             
             <div class="project-page-title">
-                <h1 style="color:#3578E5; font-weight:700;text-align: center">DANH SÁCH DỰ ÁN</h1>
+                <h1 style="color:#3578E5; font-weight:700;text-align: center">DỰ ÁN ĐANG LÊN Ý TƯỞNG</h1>
             </div>
             <div style="position: relative" class="container">
-                @foreach($project as $pr)
+                @foreach($idea as $id)
                 <div class="project-item col-sm-3" style="background-color: #fff;border: none;border-radius: 35px;margin: 18px; position: flex; justify-content: space-between">
                     <div class="project-name">
-                        <h4 class="project-title">{{ $pr -> name }} </h4>
-                        <div class="project-status">
-                        @if( $pr -> status == 0 )
-                                <i class="i i-hexagon2 i-s-base text-warning hover-rotate"></i>
-                        @elseif($pr -> status == 1)
-                                <i class="i i-hexagon2 i-s-base text-success-lt hover-rotate"></i>
-                        @else
-                                <i class="i i-hexagon2 i-s-base text-primary hover-rotate"></i>
-                        @endif
-                        </div>
-                        
+                        <h4>{{ $id -> name }}</h4>
                     </div>
                     <div class="project-time-start">
-                        <p>Bắt đầu: {{ $pr -> time_start }}</p>
+                        <p>Bắt đầu: {{ $id -> time_start }}</p>
                     </div>                        
                     <div class="project-deadline">
-                         <p>Dự kiến kết thúc: {{ $pr -> deadline }}</p>  
+                         <p>Dự kiến kết thúc: {{ $id -> deadline }}</p>  
                     </div>    
                     <div class="project-main-content">  
-                        <p>Nội dung dự án: {{ $pr -> content }}</p>
+                        <p>Nội dung dự án: <br> {{ $id -> content }}</p>
                         <div class="project-button-details">
                             <button class="btn-details">Xem chi tiết</button>
                         </div>
@@ -290,7 +281,7 @@
                         </div>
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <form action="{{ route('create_project') }}" id="form-addproject" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('idea_project') }}" id="form-addproject" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -358,85 +349,7 @@
             </div>
             
         </div>
-        <!-- edit-update project -->
-        <div class="modal fade" id="modal-editproject">
-                <div class="modal-dialog modal-lg">
-                    <div class="model-content" style="background-color: #fff; border-radius: 10px">
-                        <!-- Modal header -->
-                        <div class="modal-header" style="display: flex; justify-content: space-between; margin: 0 20px; align-items: center">
-                            <h2 class="model-title">Chỉnh sửa dự án</h2>
-                            <button type="button" class="close" data-dismiss="modal" style="width:20px; height: 20px;">&times;</button>
-                        </div>
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <form action="{{ route('edit_project') }}" id="form-editproject" method="POST" enctype="multipart/form-data">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="edit_name" class="control-label">Tên dự án</label>
-                                        <input type="text" name="edit_name" class="form-control">
-                                        <span class="error-form"></span>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="edit_content" class="control-label">Mô tả dự án</label><br>
-                                        <textarea name="edit_content" style="width:100%"></textarea>
-                                        <span class="error-form"></span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="edit_time_start" class="control-label">Thời gian bắt đầu</label>
-                                        <input type="date" class="form-control" name="edit_time_start">
-                                        <span class="error-form"></span>
-                                    </div>
-                                </div> 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="edit_deadline" class="control-label">Dự kiến kết thúc</label>
-                                        <input type="date" class="form-control" name="edit_deadline">
-                                        <span class="error-form"></span>
-                                    </div>
-                                </div> 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="edit_status" class="control-label">Trạng thái</label>
-                                        <select name="edit_status" class="form-control">
-                                            <option value=0>Ý tưởng</option>
-                                            <option value=1>Đang tiến hành</option>
-                                            <option value=2>Đã hoàn thành</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="edit_rate" class="control-label">Đánh giá</label>
-                                        <select name="edit_rate" class="form-control">
-                                            <option value=0>Fail</option>
-                                            <option value=1>Not Fail</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="edit_branch" class="control-label">Chi nhánh:</label>
-                                        <select name="edit_branch" class="form-control">
-                                            @foreach($branch as $br_id)
-                                                <option value="{{$br_id -> id}}">{{ $br_id -> name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="clearfix" style="clear:both;height:30px;text-align:center"> 
-                                <button class="btn btn-primary" type="submit">Chỉnh sửa</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-    </section>
+       </section>
 @endsection
 @section('script')
     <script type="text/javascript">

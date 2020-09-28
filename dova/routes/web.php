@@ -32,6 +32,13 @@ Route::get('/deleteUser/{User_id}', 'Backend\UserController@delete');
 
 //Project Route
 Route::group(["prefix" => "project"], function() {
-    Route::get('listProject', 'ProjectController@getList')->name('list_project');
-    Route::post('createProject', 'ProjectController@create')->name('create_project');
+    Route::get('/projectHome', 'Backend\ProjectController@index')->name('home_project');
+    Route::get('/listProject', 'Backend\ProjectController@getList')->name('list_project');
+    Route::get('/createProject', 'Backend\ProjectController@create')->name('create_project');
+    Route::post('/createProject', 'Backend\ProjectController@store')->name('store_project');
+    Route::get('/editProject', 'Backend\ProjectController@edit')->name('edit_project');
+    Route::post('/updateProject/{id}', 'Backend\ProjectController@update')->name('update_project');
+    Route::get('/ongoingProject', 'Backend\ProjectController@ongoingList')->name('ongoing_project');
+    Route::get('/completeProject', 'Backend\ProjectController@completeList')->name('complete_project');
+    Route::get('/ideaProject', 'Backend\ProjectController@ideaList')->name('idea_project');
 });

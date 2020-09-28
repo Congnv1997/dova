@@ -8,7 +8,9 @@ class Department extends Model
 {
     protected $table = "department";
 
-    public function project(){
-        return $this->hasMany('App\Project', 'department_id', 'id');
+    public $timestamps = false;
+
+    public function staff() {
+        return $this->hasMany('App\Staff', 'staff_id', 'id');
     }
 }

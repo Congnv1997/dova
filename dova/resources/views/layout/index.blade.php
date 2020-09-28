@@ -50,16 +50,13 @@
         <link rel="stylesheet" href="admin_aset/dist/css/daotao.css">
         <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
         <link rel="stylesheet" href="https://codeseven.github.io/toastr/build/toastr.min.css" type="text/css">
+        <!-- custom css -->
+        <link rel="stylesheet" href="style.css">
 
 <style>
 .error-form{
     color:red;
 }
-
-.project-page-title {
-                color: #3578E5;
-                font-weight:
-            }  
 </style>
 
 

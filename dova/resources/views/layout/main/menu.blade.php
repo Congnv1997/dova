@@ -17,7 +17,7 @@
                             </a>
                         </li>
                         <li id="">
-                            <a href="{{ route('list_project') }}">
+                            <a href="{{ route('home_project') }}">
                                 <i class="fas fa-project-diagram"></i>
                                 <span>Dự án</span>
                             </a>

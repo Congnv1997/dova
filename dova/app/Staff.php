@@ -23,4 +23,12 @@ class Staff extends Model
     public function user() {
         return $this->hasOne('App\User', 'id', 'id');
     }
+
+    public function timeCard() {
+        return $this->hasMany('App\Time_card', 'staff_id', 'id');
+    }
+
+    public function department() {
+        return $this->belongsTo('App\Department', 'department_id', 'id');
+    }
 }
