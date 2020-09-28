@@ -30,28 +30,15 @@ Route::get('/addUser', 'Backend\UserController@add')
     ->name('User.Add');
 Route::get('/deleteUser/{User_id}', 'Backend\UserController@delete');
 
-
-
-// Route::get('bo-phan','Backend\BophanController@bophan');
-
-// Task
-Route::get('/task','Backend\TaskController@list')->name('ajax_post.themTask');
-
-Route::post('task/update','Backend\TaskController@update');
-Route::post('task/delete','Backend\TaskController@destroy');
-Route::get('/addTask', 'Backend\TaskController@add')
-;
-Route::post('task/create','Backend\TaskController@store');
-    
-
-
 //Project Route
 Route::group(["prefix" => "project"], function() {
-    Route::get('listProject', 'ProjectController@getList')->name('list_project');
-    Route::post('createProject', 'ProjectController@create')->name('create_project');
+    Route::get('/projectHome', 'Backend\ProjectController@index')->name('home_project');
+    Route::get('/listProject', 'Backend\ProjectController@getList')->name('list_project');
+    Route::get('/createProject', 'Backend\ProjectController@create')->name('create_project');
+    Route::post('/createProject', 'Backend\ProjectController@store')->name('store_project');
+    Route::get('/editProject', 'Backend\ProjectController@edit')->name('edit_project');
+    Route::post('/updateProject/{id}', 'Backend\ProjectController@update')->name('update_project');
+    Route::get('/ongoingProject', 'Backend\ProjectController@ongoingList')->name('ongoing_project');
+    Route::get('/completeProject', 'Backend\ProjectController@completeList')->name('complete_project');
+    Route::get('/ideaProject', 'Backend\ProjectController@ideaList')->name('idea_project');
 });
-
-// Task
-Route::get('/task','Backend\TaskController@list');
-
-

@@ -5,19 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="_token" content="{{ csrf_token() }}">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="description" content="">
         <meta name="author" content="">
         <!-- <meta http-equiv="refresh" content="30"> -->
         <base href="{{asset('')}}">
         <title>Trang quản trị</title>
-
-        <!-- calendar -->
-        <link href='calendar/lich/css/css.css' rel='stylesheet' />
-        <link href='calendar/lich/css/main.css' rel='stylesheet' />
-        @yield('calendar')
-  
-        
 
         <!-- Bootstrap Core CSS -->
         <link href="admin_aset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -34,9 +26,7 @@
         <!-- DataTables Responsive CSS -->
         <link href="admin_aset/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
         <!-- CSS -->
-
-        <link rel="stylesheet" href="calendar/css.css">
-
+        <link rel="stylesheet" href="../../assets/css/style.css">
         <link rel="stylesheet" href="admin_aset/dist/fontawesome/css/all.css">
         <link rel="stylesheet" href="admin_aset/dist/css/css.css">
 
@@ -60,16 +50,15 @@
         <link rel="stylesheet" href="admin_aset/dist/css/daotao.css">
         <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
         <link rel="stylesheet" href="https://codeseven.github.io/toastr/build/toastr.min.css" type="text/css">
-
-      
-
-       
+        <!-- custom css -->
+        <link rel="stylesheet" href="style.css">
 
 <style>
 .error-form{
     color:red;
 }
 </style>
+
 
  @if(session('toastr'))
     <script>
@@ -147,6 +136,7 @@
 
           @include('layout.main.header')
           @include('layout.main.banner')
+
          @include('layout.main.menu')
          
     <!-- check -->
@@ -159,7 +149,7 @@
 
     @yield('content')
 
-    </section>
+</section>
 </section>
         </div>
         <div id="chatbox1_script_fullajax">
@@ -378,7 +368,6 @@
        <script language="javascript" type="text/javascript"> </script>
         <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 
-        
 
 
 
@@ -395,11 +384,155 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+<script src="js/toastr.min.js"></script>
+   <script>
 
 
 
+$(document).ready(
+                    function () {
+                        $("#datepicker-index").datepicker({
+                            dateFormat: 'dd-mm-yy',
+                            changeMonth: true, //Tùy chọn này cho phép người dùng chọn tháng
+                            changeYear: true //Tùy chọn này cho phép người dùng lựa chọn từ phạm vi năm
+                        });
+                    }
+            );
 
 
+//  sửa thông tin cá nhân
+function editthongtincanhan(ns) {
+
+   $.ajax({
+
+       type: 'GET',
+       url: 'dang-nhap/suathongtincanhan/'+ns,
+       success: function(data) {
+        $("#form-suathongtincanhan input[name=name]").val(data.ns.name);
+        $("#form-suathongtincanhan input[name=email]").val(data.ns.email);
+
+
+             $("#form-suathongtincanhan input[name=img_hi]").val(data.ns.logo);
+
+
+             $("#form-suathongtincanhan input[name=id]").val(data.ns.id);
+
+        $("#form-suathongtincanhan #img_cu").attr('src','{{url("")}}/upload/'+data.ns.logo);
+           $('#modal-suathongtincanhan').modal('show');
+       },
+       error: function(data) {
+           console.log(data);
+       }
+   });
+}
+
+$(function () {
+
+     $('.js-btn-suathongtincanhan').click(function (e) {
+   e.preventDefault();
+
+   let $this = $(this);
+  let $domForm = $this.closest('#form-suathongtincanhan');
+
+
+   $.ajax({
+     url: 'dang-nhap/postsuathongtincanhan/' + $("#form-suathongtincanhan input[name=id]").val(),
+      data: new FormData($("#modal-suathongtincanhan form")[0]),
+                     contentType: false,
+                     processData: false,
+      method : "POST",
+   }).done(function (data) {
+    console.log(data);
+     $("#modal-suathongtincanhan").modal('hide');
+     $("#form-suathongtincanhan")[0].reset();
+     $(".load-name").html(data.name);
+     $(".load-anh").html(data.output);
+     $(".load-anh1").html(data.anh1);
+         toastr.success('','Thay đổi thông tin thành công');
+
+   }).fail(function (data) {
+     var errors = data.responseJSON;
+     $.each(errors.errors, function (i, val) {
+       $domForm.find('input[name=' + i + ']').siblings('.error-form').text(val[0]);
+     });
+   });
+ });
+})
+
+// đổi mật khẩu
+function editmatkhau(ns) {
+
+   $.ajax({
+
+       type: 'GET',
+       url: 'dang-nhap/doi-ma-khau/'+ns,
+       success: function(data) {
+
+         $("#form-suamatkhau input[name=id]").val(data.ns.id);
+
+           $('#modal-suamatkhau').modal('show');
+       },
+       error: function(data) {
+           console.log(data);
+       }
+   });
+}
+$(function () {
+
+     $('.js-btn-suamatkhau').click(function (e) {
+   e.preventDefault();
+
+   let $this = $(this);
+  let $domForm = $this.closest('#form-suamatkhau');
+
+
+   $.ajax({
+     url: 'dang-nhap/postsuamatkhau/' + $("#form-suamatkhau input[name=id]").val(),
+      data: new FormData($("#modal-suamatkhau form")[0]),
+                     contentType: false,
+                     processData: false,
+      method : "POST",
+   }).done(function (data) {
+
+    console.log(data);
+
+     if(data.error==false)
+     {
+        $('.error').show().text(data.message.error[0]);
+     }
+     else
+     {
+        $("#modal-suamatkhau").modal('hide');
+        $("#form-suamatkhau")[0].reset();
+           toastr.success('','Đổi mật khẩu thành công');
+
+     }
+
+   }).fail(function (data) {
+     var errors = data.responseJSON;
+     $.each(errors.errors, function (i, val) {
+       $domForm.find('input[name=' + i + ']').siblings('.error-form').text(val[0]);
+     });
+   });
+ });
+})
+
+</script>
+<script>
+      if(typeof TYPE_MESSAGE!="undifined")
+        {
+          switch(TYPE_MESSAGE)
+          {
+            case 'success':
+            toastr.success(MESSAGE)
+
+           break;
+            case 'error':
+            toastr.error(MESSAGE)
+            break;
+          }
+        }
+    </script>
       @yield('script')
     </body>
 
