@@ -21,19 +21,9 @@
                             </a>
                         </li>
                         <li id="">
-<<<<<<< HEAD
                             <a href="{{ route('home_project') }}">
-=======
-
-                            <a href="{{ route('list_project') }}">
->>>>>>> afd514ec646a396a78b1a76ce2c6fe53f2ee2eb5
                                 <i class="fas fa-project-diagram"></i>
                                 <span>Dự án</span>
-
-                            <a href="chuong-trinh/home">
-                                <i class="i i-study icon"></i>
-                                <span>Chương trình</span>
-
                             </a>
                         </li>
                         <li id="menuleft_lophoc">
