@@ -38,6 +38,9 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class, 'id_role','id_role');
     }
 
+    public function staff(){
+        return $this->belongsTo('App\Staff', 'id', 'id');
+    }
     // hàm kiểm tra user hiện tại có được gán 1 quyền nào đó hay không,
     // nếu có thì trả về true
     public function hasPermission(Permission $permission){
