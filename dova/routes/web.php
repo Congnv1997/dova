@@ -31,6 +31,20 @@ Route::get('/addUser', 'Backend\UserController@add')
 Route::get('/deleteUser/{User_id}', 'Backend\UserController@delete');
 
 
+
+// Route::get('bo-phan','Backend\BophanController@bophan');
+
+// Task
+Route::get('/task','Backend\TaskController@list')->name('ajax_post.themTask');
+
+Route::post('task/update','Backend\TaskController@update');
+Route::post('task/delete','Backend\TaskController@destroy');
+Route::get('/addTask', 'Backend\TaskController@add')
+;
+Route::post('task/create','Backend\TaskController@store');
+    
+
+
 //Project Route
 Route::group(["prefix" => "project"], function() {
     Route::get('listProject', 'ProjectController@getList')->name('list_project');

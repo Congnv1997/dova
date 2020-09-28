@@ -15,7 +15,7 @@
                             </a>
                         </li>
                         <li id="">
-                            <a href="hoc-vien/home">
+                            <a href="bo-phan">
                                 <i class="i i-user2 icon"></i>
                                 <span>Học viên</span>
                             </a>
