@@ -10,13 +10,11 @@
         <!-- <meta http-equiv="refresh" content="30"> -->
         <base href="{{asset('')}}">
         <title>Trang quản trị</title>
-
         <!-- Bootstrap Core CSS -->
         <link href="admin_aset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="admin_aset/bower_components/bootstrap/dist/css/icon.css" rel="stylesheet">
         <!-- MetisMenu CSS -->
         <link href="admin_aset/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-
         <!-- Custom Fonts -->
         <link href="admin_aset/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -26,7 +24,6 @@
         <!-- DataTables Responsive CSS -->
         <link href="admin_aset/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
         <!-- CSS -->
-        <link rel="stylesheet" href="../../assets/css/style.css">
         <link rel="stylesheet" href="admin_aset/dist/fontawesome/css/all.css">
         <link rel="stylesheet" href="admin_aset/dist/css/css.css">
 
@@ -34,7 +31,7 @@
         <link rel="stylesheet" href="admin_aset/dist/css/boostrap.css">
         <link rel="stylesheet" href="admin_aset/dist/css/buttons.css">
         <link rel="stylesheet" href="admin_aset/dist/css/colorbox.css">
-       <link rel="stylesheet" href="admin_aset/dist/css/font-awesome.min.css">
+        <link rel="stylesheet" href="admin_aset/dist/css/font-awesome.min.css">
         <link rel="stylesheet" href="admin_aset/dist/css/font.css">
         <link rel="stylesheet" href="admin_aset/dist/css/icon.css">
         <link rel="stylesheet" href="admin_aset/dist/css/lleader.css">
@@ -50,15 +47,12 @@
         <link rel="stylesheet" href="admin_aset/dist/css/daotao.css">
         <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
         <link rel="stylesheet" href="https://codeseven.github.io/toastr/build/toastr.min.css" type="text/css">
-        <!-- custom css -->
-        <link rel="stylesheet" href="style.css">
 
 <style>
 .error-form{
     color:red;
 }
 </style>
-
 
  @if(session('toastr'))
     <script>
@@ -136,8 +130,7 @@
 
           @include('layout.main.header')
           @include('layout.main.banner')
-
-         @include('layout.main.menu')
+          @include('layout.main.menu')
          
     <!-- check -->
 
@@ -385,10 +378,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
 <script src="js/toastr.min.js"></script>
-   <script>
-
-
-
+<script>
 $(document).ready(
                     function () {
                         $("#datepicker-index").datepicker({
@@ -398,8 +388,6 @@ $(document).ready(
                         });
                     }
             );
-
-
 //  sửa thông tin cá nhân
 function editthongtincanhan(ns) {
 

@@ -1,0 +1,24 @@
+body {  
+padding-top: 0px;
+
+}
+body{
+background: url(../images/banner.jpg)no-repeat;
+background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+padding:0;
+margin:0; 
+font-family: 'Roboto Condensed', sans-serif;
+ font-size: 100%;
+}
+.form-control { 
+margin-bottom: 10px;
+}
+.login-screen-bg {  
+background-color: #EFEFEF;
+}
+	
