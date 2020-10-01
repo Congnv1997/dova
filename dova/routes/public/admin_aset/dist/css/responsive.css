@@ -1,0 +1,9 @@
+@media (max-width: 767px) {
+    .col-xs-12 {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .col-xs-12 input{
+        width: 100%
+    }
+}
