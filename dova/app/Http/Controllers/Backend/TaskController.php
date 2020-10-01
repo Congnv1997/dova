@@ -1,11 +1,14 @@
 <?php
+
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Requests\AddtaskReaquest;
+use App\Http\Requests\EdittaskReaquest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
-Use App\task;
+use App\Task;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,71 +19,84 @@ class TaskController extends  Controller
 {
     public function list()
     {
-        $bang = task::all();
-    if(request()->ajax())
-    {
-     $start = (!empty($_GET["start"])) ? ($_GET["start"]) : ('');
-     $end = (!empty($_GET["end"])) ? ($_GET["end"]) : ('');
+        $bang = Task::all();
 
-     $data = task::whereDate('start', '>=', $start)->whereDate('end',   '<=', $end)->get(['id','title','content','start', 'end']);
-     return Response::json($data);
+        return view('backend.task.task', ['task' => $bang]);
     }
-    return view('backend.task.task',['task' => $bang]);
-}
-public function add(){
-    return view('backend.task.task');
-}
-    
-    public function store(Request $request)
+
+
+    public function store(AddtaskReaquest $request)
     {
-        if ($request) {
-           
-            $rule = [
-                'name' => 'required',
-                'content' => 'required',
-                'start' => 'required',
-                'end' => 'required',
-                'color' => 'required',
-            ];
-            $msg = [
-                'title.required' => 'Bạn cần nhập tên vào',
-                'content.required' => 'Bạn cần nhập ghi chú vào',
-                'start.required' => 'Bạn cần nhập thời gian bắt đầu vào',
-                'end.required' => 'Bạn cần nhập thời gian kết thúc vào',
-                'color.required' => 'Bạn cần nhập màu vào',
+        if ($request->ajax()) {
+            $output = '';
 
-            ];
-            $validator = Validator::make($request->all(), $rule, $msg);
-            if ($validator->fails()) {
-                echo '<pre>';
-                $dataView['err'] = $validator->errors()->toArray();
-                echo '<pre>';
-                $request->flash();
-                return Redirect::to('/task')->withErrors($validator->errors());
-            } else {
+            $id = new Task;
+            $id->title = $request->title;
+            $id->content = $request->content;
+            $id->start = $request->start . " " . $request->time_start . ":" . $request->startdate_minute;
+            $id->end = $request->end . " " . $request->time_end . ":" . $request->enddate_minute;
+            $id->color = $request->color;
+            $id->save();
 
-                $data = array();
+            // $task = Task::all();
+            // if ($task) {
 
-                $data['title'] = $request->name;
-                $data['content'] = $request->content;
-                $data['start'] = $request->start;
-                $data['end'] = $request->end;
-                $data['status'] = $request->status;
-                $data['color'] = $request->color;
-                $data['user_id'] = $request->user_id;
-        
-               
+            //     foreach ($task as $cn) {
+            //         $output .= '<tr>
 
-                DB::table('task')->insert($data);
-                Session::put('message', 'thêm thành công');
-                return Redirect::to('/task');
-            }
-            return view('backend.task.task');
+            //     <td class="text-center">' . $cn->title . '</td>
+            //     <td class="text-center">' . $cn->content . '</td>
+            //     <td class="text-center">' . $cn->start . '</td>
+            //     <td class="text-center">' . $cn->end . '</td>
+            //     <td class="text-center">' . $cn->status . '</td>
+            //     <td class="text-center">' . $cn->color . '</td>
+            //     <td class="text-center">' . $cn->delete_status . '</td>
+
+
+            //     </tr>';
+            //     }
+            // }
+            return Response($output);
         }
-        }
-    
-    
-    
-    
-    
     }
+    public function edit($id)
+    {
+        $cn = Task::find($id);
+
+        return response()->json([
+            'error' => false,
+            'cn'  => $cn,
+        ], 200);
+    }
+    public function update(EdittaskReaquest $request, $id)
+    {
+        if ($request->ajax()) {
+
+            $output = '';
+
+            $id = Task::find($id);
+            $id->title = $request->title;
+            $id->content = $request->content;
+            $id->start = $request->start . " " . $request->time_start . ":" . $request->startdate_minute;
+            $id->end = $request->end . " " . $request->time_end . ":" . $request->enddate_minute;
+            $id->color = $request->color;
+            $id->save();
+            $task = Task::all();
+            // if ($task) {
+            //     $a = "{{url('')}}";
+            //     foreach ($task as $cn) {
+            //         $output .= '<tr>
+            //         <td class="text-center">' . $cn->ten . '</td>
+            //         <td class="text-center">' . $cn->machinhanh . '</td>
+            //         <td class="text-center">' . $cn->created_at . '</td>
+            //         <td class="text-center">
+            //                             <a onclick="event.preventDefault();editchinhanh(' . $cn->id . ')" title="Chỉnh sửa" href="#" class="edit open-modal btn btn-primary" data-toggle="modal" value="' . $cn->id . '"><i class="fa fa-pencil"></i></a>
+            //                               <a  href="xoachinhanh/' . $cn->id . '" class="btn btn-danger js-xoachinhanh" ><i class="fa fa-trash-o"></i></a>
+            //                           </td>
+            //         </tr>';
+            //     }
+            // }
+            return Response($output);
+        }
+    }
+}

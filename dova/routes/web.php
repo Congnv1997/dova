@@ -15,43 +15,33 @@ Route::get('/', function () {
     return view('welcome');
 });
 // ---login
+
 Route::match(['get', 'post'], '/login', 'Backend\AdminController@Login')->name('Auth.Login');
 Route::get('/logout', 'Backend\AdminController@Logout')->name('Auth.Logout');
 
 // User
-Route::get('/','Frontend\HomeController@index')->name('home');
+Route::get('/', 'Frontend\HomeController@index')->name('home');
 Route::get('/listUser', 'Backend\UserController@list')
     ->name('User.Index');
 Route::post('/updateUser/{User_id}', 'Backend\UserController@update');
 Route::get('/editUser/{User_id}', 'Backend\UserController@edit')->name('user.edit')
-        ->name('User.Edit');
+    ->name('User.Edit');
 Route::post('/saveUser', 'Backend\UserController@save');
 Route::get('/addUser', 'Backend\UserController@add')
     ->name('User.Add');
 Route::get('/deleteUser/{User_id}', 'Backend\UserController@delete');
 
 
-
-// Route::get('bo-phan','Backend\BophanController@bophan');
-
-// Task
-Route::get('/task','Backend\TaskController@list')->name('ajax_post.themTask');
-
-Route::post('task/update','Backend\TaskController@update');
-Route::post('task/delete','Backend\TaskController@destroy');
-Route::get('/addTask', 'Backend\TaskController@add')
-;
-Route::post('task/create','Backend\TaskController@store');
-    
-
-
-//Project Route
-Route::group(["prefix" => "project"], function() {
-    Route::get('listProject', 'ProjectController@getList')->name('list_project');
-    Route::post('createProject', 'ProjectController@create')->name('create_project');
-});
+Route::get('bo-phan', 'Backend\BophanController@bophan');
 
 // Task
-Route::get('/task','Backend\TaskController@list');
+Route::get('/task', 'Backend\TaskController@list')->name('task');
+Route::post('task/update/{id}', 'Backend\TaskController@update')->name('edit-task');
+Route::get('/editTask', 'Backend\TaskController@edit')->name('ajax_post.suaTask');
+Route::post('task/delete', 'Backend\TaskController@destroy');
+Route::post('task/create', 'Backend\TaskController@store')->name('ajax_post.themTask');
 
-
+// Staff
+Route::get('/staff', 'Backend\StaffController@list');
+Route::get('home', 'Backend\StaffController@nhansu');
+Route::post('staff/create', 'Backend\StaffController@store')->name('ajax_post.themStaff');
